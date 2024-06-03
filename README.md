@@ -51,6 +51,9 @@ The change was applied to the getNextParam function because it was calling the g
 So we added another Query method for getting the value and in the getNextParameter we call that, and then seperately modify the index.
 
 
+///////////////////////////////////
+
+
 
 Self Encapsulated Field:
 
@@ -63,10 +66,25 @@ The change was applied to klasses variable which was accessed directly in the me
 So a getter and setter function was written for it and then the getter was called instead of calling directly in methods.
 
 
+///////////////////////////////////
+
 
 Extract Method:
+
 Problem:
 Extract Method is used to combat long methods that contain too much code, making them hard to understand and maintain. In Parser class, the startParse method is quite long and contains multiple responsibilities.
 
 Solution:
 Refactor the startParse method in the Parser class by extracting smaller methods for different responsibilities. which is cut into these methods:initializeParser, parseTokens, handleShiftAction, handleReduceAction.
+
+
+///////////////////////////////////
+
+
+Replace Temp with Query:
+
+Problem:
+This refactoring technique is used to eliminate temporary variables that are only used to hold intermediate results. These temporaries can be replaced with a method call that performs the same computation.
+In lexicalAnalyzer class, the tokenPattern temporary variable can be replaced with a method call.
+Solution:
+So we wrote a buildTokenPattern method to handle this temporary variable.
