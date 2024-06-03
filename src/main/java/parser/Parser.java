@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.Stack;
 
 import Log.Log;
@@ -19,7 +20,7 @@ public class Parser {
     private lexicalAnalyzer lexicalAnalyzer;
     private CodeGenerator cg;
 
-    public Parser() {
+    public Parser(CodeGenerator cg) {
         parsStack = new Stack<Integer>();
         parsStack.push(0);
         try {
@@ -35,8 +36,9 @@ public class Parser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        cg = new CodeGenerator();
+        this.cg = cg;
     }
+
 
     public void startParse(java.util.Scanner sc) {
         lexicalAnalyzer = new lexicalAnalyzer(sc);
