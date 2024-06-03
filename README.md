@@ -40,9 +40,19 @@ Integer --> <INTEGER_LITERAL>
 
 
 
+
+
 Report of the Project
 
 
 Seperate Query From Modifer Refactoring:
 The change was applied to the getNextParam function because it was calling the getNextParameter function which was both returning a value and modifying the index.
 So we added another Query method for getting the value and in the getNextParameter we call that, and then seperately modify the index.
+
+
+
+Self Encapsulated Field:
+The change was applied to klasses variable which was accessed directly in the methods. and this is how it was refactored:
+1- Create a getter (and optional setter) for the field. They should be either protected or public.
+2- Find all direct invocations of the field and replace them with getter and setter calls.
+So a getter and setter function was written for it and then the getter was called instead of calling directly in methods.
