@@ -2,9 +2,6 @@ package semantic.symbol;
 
 import codeGenerator.CodeGeneratorFacade;
 import codeGenerator.Address;
-//import codeGenerator.Memory;
-//import codeGenerator.TypeAddress;
-//import codeGenerator.varType;
 import errorHandler.ErrorHandler;
 
 import java.util.ArrayList;
@@ -72,8 +69,12 @@ public class SymbolTable {
         return res;
     }
 
-    public Symbol getNextParam(String className, String methodName) {
-        return klasses.get(className).Methodes.get(methodName).getNextParameter();
+    public Symbol queryNextParam(String className, String methodName) {
+        return klasses.get(className).Methodes.get(methodName).peekNextParameter();
+    }
+
+    public void advanceToNextParam(String className, String methodName) {
+        klasses.get(className).Methodes.get(methodName).advanceToNextParameter();
     }
 
     public void startCall(String className, String methodName) {
@@ -96,7 +97,6 @@ public class SymbolTable {
         return klasses.get(className).Methodes.get(methodName).codeAddress;
     }
 
-
     class Klass {
         public Map<String, Symbol> Fields;
         public Map<String, Method> Methodes;
@@ -112,9 +112,7 @@ public class SymbolTable {
                 return Fields.get(fieldName);
             }
             return superClass.getField(fieldName);
-
         }
-
     }
 
     class Method {
@@ -148,13 +146,22 @@ public class SymbolTable {
             orderdParameters.add(parameterName);
         }
 
-        private void reset() {
+        public void reset() {
             index = 0;
         }
 
-        private Symbol getNextParameter() {
-            return parameters.get(orderdParameters.get(index++));
+        public Symbol getNextParameter() {
+            Symbol param = peekNextParameter(); // Call the query method
+            index++; // Modify the state
+            return param;
+        }
+
+        public Symbol peekNextParameter() {
+            return parameters.get(orderdParameters.get(index));
+        }
+
+        public void advanceToNextParameter() {
+            index++;
         }
     }
-
 }

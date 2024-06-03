@@ -236,7 +236,8 @@ public class CodeGenerator {
         String methodName = callStack.pop();
         String className = callStack.pop();
         try {
-            symbolTable.getNextParam(className, methodName);
+            symbolTable.queryNextParam(className, methodName);
+            symbolTable.advanceToNextParam(className, methodName);
             ErrorHandler.printError("The few argument pass for method");
         } catch (IndexOutOfBoundsException e) {
         }
@@ -264,7 +265,8 @@ public class CodeGenerator {
         String methodName = callStack.pop();
 //        String className = symbolStack.pop();
         try {
-            Symbol s = symbolTable.getNextParam(callStack.peek(), methodName);
+            Symbol s = symbolTable.queryNextParam(callStack.peek(), methodName);
+            symbolTable.advanceToNextParam(callStack.peek(), methodName);
             varType t = varType.Int;
             switch (s.type) {
                 case Bool:
