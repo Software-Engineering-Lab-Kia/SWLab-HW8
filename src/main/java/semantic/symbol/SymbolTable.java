@@ -150,12 +150,6 @@ public class SymbolTable {
             index = 0;
         }
 
-        public Symbol getNextParameter() {
-            Symbol param = peekNextParameter(); // Call the query method
-            index++; // Modify the state
-            return param;
-        }
-
         public Symbol peekNextParameter() {
             return parameters.get(orderdParameters.get(index));
         }
