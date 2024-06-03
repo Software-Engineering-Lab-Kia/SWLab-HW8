@@ -38,40 +38,34 @@ public class Parser {
         this.cgf = cgf;
     }
 
-
     public void startParse(java.util.Scanner sc) {
+        initializeParser(sc);
+        parseTokens();
+    }
+
+    private void initializeParser(java.util.Scanner sc) {
         lexicalAnalyzer = new lexicalAnalyzer(sc);
+    }
+
+    private void parseTokens() {
         Token lookAhead = lexicalAnalyzer.getNextToken();
         boolean finish = false;
         Action currentAction;
         while (!finish) {
             try {
-                Log.print(/*"lookahead : "+*/ lookAhead.toString() + "\t" + parsStack.peek());
-//                Log.print("state : "+ parsStack.peek());
+                Log.print(lookAhead.toString() + "\t" + parsStack.peek());
                 currentAction = parseTable.getActionTable(parsStack.peek(), lookAhead);
                 Log.print(currentAction.toString());
 
                 Act act = currentAction.action;
 
-                if(act instanceof Shift) {
-                    parsStack.push(act.number);
+                if (act instanceof Shift) {
+                    handleShiftAction((Shift) act);
                     lookAhead = lexicalAnalyzer.getNextToken();
                 } else if (act instanceof Reduce) {
-                    Rule rule = rules.get(act.number);
-                    for (int i = 0; i < rule.RHS.size(); i++) {
-                        parsStack.pop();
-                    }
-
-                    Log.print(/*"state : " +*/ parsStack.peek() + "\t" + rule.LHS);
-                    parsStack.push(parseTable.getGotoTable(parsStack.peek(), rule.LHS));
-                    Log.print(/*"new State : " + */parsStack.peek() + "");
-                    try {
-                        cgf.semanticFunction(rule.semanticAction, lookAhead);
-                    } catch (Exception e) {
-                        Log.print("Code Genetator Error");
-                    }
-                } else if (act instanceof Accept){
-                        finish = true;
+                    handleReduceAction((Reduce) act, lookAhead);
+                } else if (act instanceof Accept) {
+                    finish = true;
                 }
                 Log.print("");
             } catch (Exception ignored) {
@@ -79,5 +73,25 @@ public class Parser {
             }
         }
         if (!ErrorHandler.hasError) cgf.printMemory();
+    }
+
+    private void handleShiftAction(Shift act) {
+        parsStack.push(act.number);
+    }
+
+    private void handleReduceAction(Reduce act, Token lookAhead) {
+        Rule rule = rules.get(act.number);
+        for (int i = 0; i < rule.RHS.size(); i++) {
+            parsStack.pop();
+        }
+
+        Log.print(parsStack.peek() + "\t" + rule.LHS);
+        parsStack.push(parseTable.getGotoTable(parsStack.peek(), rule.LHS));
+        Log.print(parsStack.peek() + "");
+        try {
+            cgf.semanticFunction(rule.semanticAction, lookAhead);
+        } catch (Exception e) {
+            Log.print("Code Generator Error");
+        }
     }
 }
