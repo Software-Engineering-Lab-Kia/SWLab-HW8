@@ -19,9 +19,14 @@ public class CodeGenerator {
     private Stack<String> callStack = new Stack<>();
     private SymbolTable symbolTable;
 
-    public CodeGenerator() {
-        symbolTable = new SymbolTable(memory);
-        //TODO
+    public CodeGenerator() {}
+
+    public Memory getMemory() {
+        return memory;
+    }
+
+    public void setSymbolTable(SymbolTable symbolTable) {
+        this.symbolTable = symbolTable;
     }
 
     public void printMemory() {
