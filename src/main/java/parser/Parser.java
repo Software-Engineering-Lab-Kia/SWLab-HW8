@@ -50,34 +50,28 @@ public class Parser {
 //                Log.print("state : "+ parsStack.peek());
                 currentAction = parseTable.getActionTable(parsStack.peek(), lookAhead);
                 Log.print(currentAction.toString());
-                //Log.print("");
 
-                switch (currentAction.action) {
-                    case shift:
-                        parsStack.push(currentAction.number);
-                        lookAhead = lexicalAnalyzer.getNextToken();
+                Act act = currentAction.action;
 
-                        break;
-                    case reduce:
-                        Rule rule = rules.get(currentAction.number);
-                        for (int i = 0; i < rule.RHS.size(); i++) {
-                            parsStack.pop();
-                        }
+                if(act instanceof Shift) {
+                    parsStack.push(act.number);
+                    lookAhead = lexicalAnalyzer.getNextToken();
+                } else if (act instanceof Reduce) {
+                    Rule rule = rules.get(act.number);
+                    for (int i = 0; i < rule.RHS.size(); i++) {
+                        parsStack.pop();
+                    }
 
-                        Log.print(/*"state : " +*/ parsStack.peek() + "\t" + rule.LHS);
-//                        Log.print("LHS : "+rule.LHS);
-                        parsStack.push(parseTable.getGotoTable(parsStack.peek(), rule.LHS));
-                        Log.print(/*"new State : " + */parsStack.peek() + "");
-//                        Log.print("");
-                        try {
-                            cgf.semanticFunction(rule.semanticAction, lookAhead);
-                        } catch (Exception e) {
-                            Log.print("Code Genetator Error");
-                        }
-                        break;
-                    case accept:
+                    Log.print(/*"state : " +*/ parsStack.peek() + "\t" + rule.LHS);
+                    parsStack.push(parseTable.getGotoTable(parsStack.peek(), rule.LHS));
+                    Log.print(/*"new State : " + */parsStack.peek() + "");
+                    try {
+                        cgf.semanticFunction(rule.semanticAction, lookAhead);
+                    } catch (Exception e) {
+                        Log.print("Code Genetator Error");
+                    }
+                } else if (act instanceof Accept){
                         finish = true;
-                        break;
                 }
                 Log.print("");
             } catch (Exception ignored) {
