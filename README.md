@@ -32,3 +32,17 @@ Argument --> , GenExpression Argument | lambda
 Identifier --> <IDENTIFIER_LITERAL>
 Integer --> <INTEGER_LITERAL>
 ```
+
+
+
+
+
+
+
+
+Report of the Project
+
+
+Seperate Query From Modifer Refactoring:
+The change was applied to the getNextParam function because it was calling the getNextParameter function which was both returning a value and modifying the index.
+So we added another Query method for getting the value and in the getNextParameter we call that, and then seperately modify the index.
