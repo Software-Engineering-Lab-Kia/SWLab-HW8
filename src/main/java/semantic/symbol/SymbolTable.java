@@ -15,7 +15,7 @@ public class SymbolTable {
 
     public SymbolTable(CodeGeneratorFacade cgf) {
         this.cgf = cgf;
-        klasses = new HashMap<>();
+        this.klasses = new HashMap<>();
     }
 
     public void setLastType(SymbolType type) {
@@ -23,36 +23,36 @@ public class SymbolTable {
     }
 
     public void addClass(String className) {
-        if (klasses.containsKey(className)) {
+        if (getKlasses().containsKey(className)) {
             ErrorHandler.printError("This class already defined");
         }
-        klasses.put(className, new Klass());
+        getKlasses().put(className, new Klass());
     }
 
     public void addField(String fieldName, String className) {
-        klasses.get(className).Fields.put(fieldName, new Symbol(lastType, cgf.getDateAddress()));
+        getKlasses().get(className).Fields.put(fieldName, new Symbol(lastType, cgf.getDateAddress()));
     }
 
     public void addMethod(String className, String methodName, int address) {
-        if (klasses.get(className).Methodes.containsKey(methodName)) {
+        if (getKlasses().get(className).Methodes.containsKey(methodName)) {
             ErrorHandler.printError("This method already defined");
         }
-        klasses.get(className).Methodes.put(methodName, new Method(address, lastType));
+        getKlasses().get(className).Methodes.put(methodName, new Method(address, lastType));
     }
 
     public void addMethodParameter(String className, String methodName, String parameterName) {
-        klasses.get(className).Methodes.get(methodName).addParameter(parameterName);
+        getKlasses().get(className).Methodes.get(methodName).addParameter(parameterName);
     }
 
     public void addMethodLocalVariable(String className, String methodName, String localVariableName) {
-        if (klasses.get(className).Methodes.get(methodName).localVariable.containsKey(localVariableName)) {
+        if (getKlasses().get(className).Methodes.get(methodName).localVariable.containsKey(localVariableName)) {
             ErrorHandler.printError("This variable already defined");
         }
-        klasses.get(className).Methodes.get(methodName).localVariable.put(localVariableName, new Symbol(lastType, cgf.getDateAddress()));
+        getKlasses().get(className).Methodes.get(methodName).localVariable.put(localVariableName, new Symbol(lastType, cgf.getDateAddress()));
     }
 
     public void setSuperClass(String superClass, String className) {
-        klasses.get(className).superClass = klasses.get(superClass);
+        getKlasses().get(className).superClass = getKlasses().get(superClass);
     }
 
     public Address get(String keywordName) {
@@ -60,41 +60,50 @@ public class SymbolTable {
     }
 
     public Symbol get(String fieldName, String className) {
-        return klasses.get(className).getField(fieldName);
+        return getKlasses().get(className).getField(fieldName);
     }
 
     public Symbol get(String className, String methodName, String variable) {
-        Symbol res = klasses.get(className).Methodes.get(methodName).getVariable(variable);
+        Symbol res = getKlasses().get(className).Methodes.get(methodName).getVariable(variable);
         if (res == null) res = get(variable, className);
         return res;
     }
 
     public Symbol queryNextParam(String className, String methodName) {
-        return klasses.get(className).Methodes.get(methodName).peekNextParameter();
+        return getKlasses().get(className).Methodes.get(methodName).peekNextParameter();
     }
 
     public void advanceToNextParam(String className, String methodName) {
-        klasses.get(className).Methodes.get(methodName).advanceToNextParameter();
+        getKlasses().get(className).Methodes.get(methodName).advanceToNextParameter();
     }
 
     public void startCall(String className, String methodName) {
-        klasses.get(className).Methodes.get(methodName).reset();
+        getKlasses().get(className).Methodes.get(methodName).reset();
     }
 
     public int getMethodCallerAddress(String className, String methodName) {
-        return klasses.get(className).Methodes.get(methodName).callerAddress;
+        return getKlasses().get(className).Methodes.get(methodName).callerAddress;
     }
 
     public int getMethodReturnAddress(String className, String methodName) {
-        return klasses.get(className).Methodes.get(methodName).returnAddress;
+        return getKlasses().get(className).Methodes.get(methodName).returnAddress;
     }
 
     public SymbolType getMethodReturnType(String className, String methodName) {
-        return klasses.get(className).Methodes.get(methodName).returnType;
+        return getKlasses().get(className).Methodes.get(methodName).returnType;
     }
 
     public int getMethodAddress(String className, String methodName) {
-        return klasses.get(className).Methodes.get(methodName).codeAddress;
+        return getKlasses().get(className).Methodes.get(methodName).codeAddress;
+    }
+
+    // Getter and Setter for klasses
+    public Map<String, Klass> getKlasses() {
+        return klasses;
+    }
+
+    public void setKlasses(Map<String, Klass> klasses) {
+        this.klasses = klasses;
     }
 
     class Klass {
