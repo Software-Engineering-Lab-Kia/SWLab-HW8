@@ -67,6 +67,7 @@ The formatter plugin has been added.
 
 
 **Bloaters**
+
 Bloaters are codes, methods, and classes that have increased to such gargantuan proportions that they are hard to work with. Usually, these smells do not crop up right away, rather they accumulate over time as the program evolves (and especially when nobody makes an effort to eradicate them). Different kinds of bloaters are:
 
 - Long Method
@@ -77,6 +78,7 @@ Bloaters are codes, methods, and classes that have increased to such gargantuan 
 
 
 **Object-Orientation Abusers**
+
 All these smells are incomplete or incorrect applications of object-oriented programming principles. These include:
 
 - Alternative Classes with Different Interfaces
@@ -91,6 +93,7 @@ These smells mean that if you need to change something in one place in your code
 
 
 **Dispensables**
+
 A dispensable is something pointless and unneeded whose absence would make the code cleaner, more efficient and easier to understand. They may include:
 
 - Comments
@@ -102,6 +105,7 @@ A dispensable is something pointless and unneeded whose absence would make the c
 
 
 **Couplers**
+
 All the smells in this group contribute to excessive coupling between classes or show what happens if coupling is replaced by excessive delegation.
 
 ## Question 3
