@@ -134,7 +134,8 @@ The method findMethodCallerBlock in Phase2CodeFileManipulator invokes the long c
 **7. Lazy Class:**
 Classes like CompleteValueType.java suffer the lazy class code smell and are too small and useless.
 
-
+**8. Data Class:**
+The ClassInfo is a data class and does not have any significant functionalities, the methods are mostly getters and setters.
 
 
 ## Question 5
