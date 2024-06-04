@@ -5,9 +5,13 @@
 ![kan](https://github.com/kiarashk8128/SWLab-HW8/assets/82291200/e0ef5c7c-4908-4d48-9a4e-66b3d1104294)
 
 
-# مراحل بازآرایی
+# Refactoring
 
-## دو مورد Facade
+## Tow Instances of Facade
+
+We first create a CompilerFacade class to provide a general interface to run the compiler.
+
+Next, we create a CodeGeneratorFacade the separate the code generating functionalities from the other parts of the project.
 
 ## One Instance of Polymorphism به جای شرط
 
