@@ -112,4 +112,10 @@ All the smells in this group contribute to excessive coupling between classes or
 
 ## Question 4
 
+
+
 ## Question 5
+
+The Formatter Maven plugin automatically formats the source code of a project according to specified coding standards and guidelines. It can be helpful because it ensures a consistent code style across the entire codebase, making the code easier to read and maintain. Consistent formatting also reduces the likelihood of merge conflicts in version control systems when multiple developers are working on the same project.
+
+The relationship between the formatter plugin and code refactoring is that both aim to improve the quality and maintainability of the code. While the formatter focuses on the surface level by ensuring consistent formatting, refactoring involves deeper changes to the code structure to improve its design and readability without altering its functionality. Using a formatter can complement refactoring efforts by maintaining a clean and standardized codebase, which makes it easier to identify and apply necessary structural improvements.
