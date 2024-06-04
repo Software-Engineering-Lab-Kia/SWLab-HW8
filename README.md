@@ -1,4 +1,4 @@
-![kan](https://github.com/kiarashk8128/SWLab-HW8/assets/82291200/c3419927-7421-4255-8383-370ac969a288)# MiniJava
+# MiniJava
 Mini-Java is a subset of Java. MiniJava compiler implement a compiler for the Mini-java
 programming language.
 
@@ -42,7 +42,6 @@ Integer --> <INTEGER_LITERAL>
 
 
 
-![kan](https://github.com/kiarashk8128/SWLab-HW8/assets/82291200/e0ef5c7c-4908-4d48-9a4e-66b3d1104294)
 
 
 
