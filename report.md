@@ -122,7 +122,7 @@ Primitive obsession occurs when primitive data types (e.g., int, float, String, 
 **3. Large Class:**
 Classes such as Phase1CodeGenerator.java in phase1CodeGeneration are too large and might be doing too much, violating the Single Responsibility Principle (SRP)
 
-**4. Switch Statements**
+**4. Switch Statements:**
 In many parts of the code, i.e. the LexicalAnalyzer.java there exists long switch operators with many cases.
 
 **5. God Class:**
@@ -136,6 +136,12 @@ Classes like CompleteValueType.java suffer the lazy class code smell and are too
 
 **8. Data Class:**
 The ClassInfo is a data class and does not have any significant functionalities, the methods are mostly getters and setters.
+
+**9. Long Parameter List:**
+The Phase2CodeGenerator constructor has many input parameters.
+
+**10. Divergent Change:**
+Divergent Change is when you find yourself having to change many unrelated methods when you make changes to a class. Phase1CodeGenerator.java is an example of a class having such a problem due to its complexity and size.
 
 
 ## Question 5
