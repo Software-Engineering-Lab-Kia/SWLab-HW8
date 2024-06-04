@@ -106,6 +106,10 @@ All the smells in this group contribute to excessive coupling between classes or
 
 ## Question 3
 
+- Category: The Lazy Class bad smell falls into the category of "Dispensables," which refers to something that is unnecessary and can be removed.
+- Refactoring Suggestions: To eliminate this smell, the refactorings suggested are "Inline Class" or "Collapse Hierarchy," where the class's responsibilities are merged into other classes.
+- When to Ignore: This smell might be ignored when the class is expected to grow in the future with more responsibilities, or when the class serves as a placeholder for a future design.
+
 ## Question 4
 
 ## Question 5
