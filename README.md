@@ -1,4 +1,4 @@
-# MiniJava
+![kan](https://github.com/kiarashk8128/SWLab-HW8/assets/82291200/c3419927-7421-4255-8383-370ac969a288)# MiniJava
 Mini-Java is a subset of Java. MiniJava compiler implement a compiler for the Mini-java
 programming language.
 
@@ -32,6 +32,21 @@ Argument --> , GenExpression Argument | lambda
 Identifier --> <IDENTIFIER_LITERAL>
 Integer --> <INTEGER_LITERAL>
 ```
+
+
+
+
+
+
+
+
+
+
+![kan](https://github.com/kiarashk8128/SWLab-HW8/assets/82291200/e0ef5c7c-4908-4d48-9a4e-66b3d1104294)
+
+
+
+
 
 
 
@@ -86,5 +101,7 @@ Replace Temp with Query:
 Problem:
 This refactoring technique is used to eliminate temporary variables that are only used to hold intermediate results. These temporaries can be replaced with a method call that performs the same computation.
 In lexicalAnalyzer class, the tokenPattern temporary variable can be replaced with a method call.
+
+
 Solution:
 So we wrote a buildTokenPattern method to handle this temporary variable.
