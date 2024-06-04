@@ -34,20 +34,24 @@ So a getter and setter function was written for it and then the getter was calle
 ## Other Refactoring Techniques, Extract Method:
 
 Problem:
+
 Extract Method is used to combat long methods that contain too much code, making them hard to understand and maintain. In the Parser class, the startParse method is quite long and contains multiple responsibilities.
 
 Solution:
+
 Refactor the startParse method in the Parser class by extracting smaller methods for different responsibilities. which is cut into these methods:initializeParser, parseTokens, handleShiftAction, and handleReduceAction.
 
 ## Other Refactoring Techniques, Replace Temp with Query:
 
 
 Problem:
+
 This refactoring technique is used to eliminate temporary variables that are only used to hold intermediate results. These temporaries can be replaced with a method call that performs the same computation.
 In lexicalAnalyzer class, the tokenPattern temporary variable can be replaced with a method call.
 
 
 Solution:
+
 So we wrote a buildTokenPattern method to handle this temporary variable.
 
 
@@ -66,7 +70,7 @@ The formatter plugin has been added.
 ## Question 2
 
 
-**Bloaters**
+**Bloaters:**
 
 Bloaters are codes, methods, and classes that have increased to such gargantuan proportions that they are hard to work with. Usually, these smells do not crop up right away, rather they accumulate over time as the program evolves (and especially when nobody makes an effort to eradicate them). Different kinds of bloaters are:
 
@@ -77,7 +81,7 @@ Bloaters are codes, methods, and classes that have increased to such gargantuan 
 - Data Clumps
 
 
-**Object-Orientation Abusers**
+**Object-Orientation Abusers:**
 
 All these smells are incomplete or incorrect applications of object-oriented programming principles. These include:
 
@@ -87,12 +91,12 @@ All these smells are incomplete or incorrect applications of object-oriented pro
 - Temporary Field
 
 
-**Change Preventers**
+**Change Preventers:**
 
 These smells mean that if you need to change something in one place in your code, you have to make many changes in other places too. Program development becomes much more complicated and expensive as a result.
 
 
-**Dispensables**
+**Dispensables:**
 
 A dispensable is something pointless and unneeded whose absence would make the code cleaner, more efficient and easier to understand. They may include:
 
@@ -104,7 +108,7 @@ A dispensable is something pointless and unneeded whose absence would make the c
 - Speculative Generality
 
 
-**Couplers**
+**Couplers:**
 
 All the smells in this group contribute to excessive coupling between classes or show what happens if coupling is replaced by excessive delegation.
 
