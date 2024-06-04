@@ -122,6 +122,16 @@ Primitive obsession occurs when primitive data types (e.g., int, float, String, 
 **3. Large Class:**
 Classes such as Phase1CodeGenerator.java in phase1CodeGeneration are too large and might be doing too much, violating the Single Responsibility Principle (SRP)
 
+**4. Switch Statements**
+In many parts of the code, i.e. the LexicalAnalyzer.java there exists long switch operators with many cases.
+
+**5. God Class:**
+A God Class (or Blob Class) is a class that takes on too many responsibilities, violating the Single Responsibility Principle (SRP). It is characterized by doing too much and knowing too much, often becoming a central point of control in the application. The Phase2CodeFileManipulator class is an example of a God Class.
+
+**6. Duplicate Code:**
+The method findMethodCallerBlock in Phase2CodeFileManipulator invokes the long chain of methods 'pairVector.elementAt(tokenPalace).getValue0().equals' too many times, resulting in duplicate code.
+
+
 
 
 ## Question 5
