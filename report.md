@@ -49,18 +49,18 @@ Solution:
 So we wrote a buildTokenPattern method to handle this temporary variable.
 
 
-## پلاگین formatter
+## Formatter Plugin
 
 
 
-# پرسش‌ها
+# Questions
 
-## پرسش 1
+## Question 1
 
-## پرسش 2
+## Question 2
 
-## پرسش 3
+## Question 3
 
-## پرسش 4
+## Question 4
 
-## پرسش 5
+## Question 5
