@@ -131,6 +131,9 @@ A God Class (or Blob Class) is a class that takes on too many responsibilities, 
 **6. Duplicate Code:**
 The method findMethodCallerBlock in Phase2CodeFileManipulator invokes the long chain of methods 'pairVector.elementAt(tokenPalace).getValue0().equals' too many times, resulting in duplicate code.
 
+**7. Lazy Class:**
+Classes like CompleteValueType.java suffer the lazy class code smell and are too small and useless.
+
 
 
 
