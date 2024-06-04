@@ -115,7 +115,10 @@ All the smells in this group contribute to excessive coupling between classes or
 **1. Long Method:**
 Methods in classes like Phase1CodeGenerator.java and Phase2CodeGenerator.java might be too long, making them difficult to understand and maintain. For instance the constructor Phase1CodeGenerator is too long.
 
-**2.**
+**2. Primitive Obsession:**
+Primitive obsession occurs when primitive data types (e.g., int, float, String, etc.) are overused instead of creating small objects to handle specific tasks or concepts. Several String arrays are defined for reserved keywords and types in LexicalAnalyzer.java, which could be represented by enumerations or a dedicated class.
+
+
 
 
 ## Question 5
