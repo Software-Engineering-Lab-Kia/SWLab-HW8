@@ -5,7 +5,7 @@
 
 # Refactoring
 
-## Tow Instances of Facade
+## Two Instances of Facade
 
 We first create a CompilerFacade class to provide a general interface to run the compiler.
 
@@ -118,6 +118,9 @@ Methods in classes like Phase1CodeGenerator.java and Phase2CodeGenerator.java mi
 **2. Primitive Obsession:**
 Primitive obsession occurs when primitive data types (e.g., int, float, String, etc.) are overused instead of creating small objects to handle specific tasks or concepts. Several String arrays are defined for reserved keywords and types in LexicalAnalyzer.java, which could be represented by enumerations or a dedicated class.
 
+
+**3. Large Class:**
+Classes such as Phase1CodeGenerator.java in phase1CodeGeneration are too large and might be doing too much, violating the Single Responsibility Principle (SRP)
 
 
 
