@@ -11,12 +11,14 @@ We first create a CompilerFacade class to provide a general interface to run the
 
 Next, we create a CodeGeneratorFacade the separate the code generating functionalities from the other parts of the project.
 
-## One Instance of Polymorphism به جای شرط
+## One Instance of Replacing Polymorphism for Switch Case
+
+We replaced the switch case block of code in the Action file with polymorphism and implemented three types of Act each extending the Act class. The three new child classes were Accept, Reduce, and Shift.
 
 ## One Instance of Separate Query From Modifier
 
 The change was applied to the getNextParam function because it was calling the getNextParameter function which was both returning a value and modifying the index.
-So we added another Query method for getting the value and in the getNextParameter we call that, and then seperately modify the index.
+So we added another Query method for getting the value and in the getNextParameter we call that, and then separately modify the index.
 
 ## One Instance of Self Encapsulated Field
 
@@ -29,15 +31,15 @@ The change was applied to klasses variable which was accessed directly in the me
 
 So a getter and setter function was written for it and then the getter was called instead of calling directly in methods.
 
-# Other Refactoring Techniques, Extract Method:
+## Other Refactoring Techniques, Extract Method:
 
 Problem:
-Extract Method is used to combat long methods that contain too much code, making them hard to understand and maintain. In Parser class, the startParse method is quite long and contains multiple responsibilities.
+Extract Method is used to combat long methods that contain too much code, making them hard to understand and maintain. In the Parser class, the startParse method is quite long and contains multiple responsibilities.
 
 Solution:
-Refactor the startParse method in the Parser class by extracting smaller methods for different responsibilities. which is cut into these methods:initializeParser, parseTokens, handleShiftAction, handleReduceAction.
+Refactor the startParse method in the Parser class by extracting smaller methods for different responsibilities. which is cut into these methods:initializeParser, parseTokens, handleShiftAction, and handleReduceAction.
 
-# Other Refactoring Techniques, Replace Temp with Query:
+## Other Refactoring Techniques, Replace Temp with Query:
 
 
 Problem:
@@ -51,7 +53,7 @@ So we wrote a buildTokenPattern method to handle this temporary variable.
 
 ## Formatter Plugin
 
-
+The formatter plugin has been added.
 
 # Questions
 
