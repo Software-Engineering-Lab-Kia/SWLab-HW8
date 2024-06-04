@@ -112,6 +112,10 @@ All the smells in this group contribute to excessive coupling between classes or
 
 ## Question 4
 
+**1. Long Method:**
+Methods in classes like Phase1CodeGenerator.java and Phase2CodeGenerator.java might be too long, making them difficult to understand and maintain. For instance the constructor Phase1CodeGenerator is too long.
+
+**2.**
 
 
 ## Question 5
