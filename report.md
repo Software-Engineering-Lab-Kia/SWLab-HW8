@@ -59,7 +59,50 @@ The formatter plugin has been added.
 
 ## Question 1
 
+کد تمیز: کد تمیز کدی است که فهمیدن، نگهداری و توسعه آن آسان باشد.
+بدهی فنی: بدهی فنی به هزینه پنهان بازسازی اضافی ناشی از انتخاب یک راه‌حل آسان در حال حاضر به جای یک رویکرد بهتر که زمان بیشتری می‌برد، اشاره دارد.
+بوی بد: بوی بد در کد به هر نشانه‌ای در کد منبع اشاره دارد که ممکن است به یک مشکل عمیق‌تر مانند افزونگی یا پیچیدگی غیرضروری دلالت کند.
+
 ## Question 2
+
+
+**Bloaters**
+Bloaters are codes, methods, and classes that have increased to such gargantuan proportions that they are hard to work with. Usually, these smells do not crop up right away, rather they accumulate over time as the program evolves (and especially when nobody makes an effort to eradicate them). Different kinds of bloaters are:
+
+- Long Method
+- Large Class
+- Primitive Obsession
+- Long Parameter List
+- Data Clumps
+
+
+**Object-Orientation Abusers**
+All these smells are incomplete or incorrect applications of object-oriented programming principles. These include:
+
+- Alternative Classes with Different Interfaces
+- Refused Bequest
+- Switch Statements
+- Temporary Field
+
+
+**Change Preventers**
+
+These smells mean that if you need to change something in one place in your code, you have to make many changes in other places too. Program development becomes much more complicated and expensive as a result.
+
+
+**Dispensables**
+A dispensable is something pointless and unneeded whose absence would make the code cleaner, more efficient and easier to understand. They may include:
+
+- Comments
+- Duplicate Code
+- Data Class
+- Dead Code
+- Lazy Class
+- Speculative Generality
+
+
+**Couplers**
+All the smells in this group contribute to excessive coupling between classes or show what happens if coupling is replaced by excessive delegation.
 
 ## Question 3
 
